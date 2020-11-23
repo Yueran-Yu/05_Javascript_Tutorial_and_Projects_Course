@@ -1,0 +1,30 @@
+body {
+  /* position: relative; */
+  /* min-height: 100px; */
+}
+
+.flexbox-container {
+  border: 3px solid black;
+  height: 400px;
+  display: flex;
+}
+
+.flexbox-item {
+  width: 200px;
+  margin: 1px;
+  border: 3px solid #333;
+  background-color: #dfdfdf;
+}
+
+.flexbox-item-1 {
+  min-height: 100px;
+  flex-shrink: 0;
+}
+.flexbox-item-2 {
+  min-height: 200px;
+  /* flex-grow: 1; */
+}
+.flexbox-item-3 {
+  min-height: 300px;
+  flex-grow: 1;
+}
