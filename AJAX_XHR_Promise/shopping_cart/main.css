@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
 }
+
 ul,
 ol {
   list-style: none;
@@ -20,6 +21,7 @@ a {
 }
 
 body{
+  text-align: center;
   width:70%;
   margin-top: 50px;
   margin-right: auto;
@@ -34,6 +36,12 @@ button{
 }
 
 .cartInfo, .itemInfo{
-  border: 1px solid black;
   padding: 10px;
+  text-align: center;
+}
+
+.item{
+  padding: 20px;
+margin: 2rem;
+border: 1px solid black;
 }
