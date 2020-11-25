@@ -1,46 +1,43 @@
-const btn = document.getElementById("btn");
-btn.addEventListener("click", function() {
-  getPerson(getData);
-});
+const btn = document.querySelector('#btn')
 
-function getPerson(cb) {
-  const url = `https://randomuser.me/api/`;
-  const ajax = new XMLHttpRequest();
-  ajax.open("GET", url, true);
+btn.addEventListener('click', function(){
+  getPerson(getData)
+})
 
-  ajax.onload = function() {
-    if (this.status === 200) {
-      cb(this.responseText, showData);
-    } else {
-      this.onerror();
+function getPerson(getDataCallback){
+  const url = "https://randomuser.me/api/"
+  const method = "GET"
+  const ajax = new XMLHttpRequest()
+  ajax.open(method, url, true)
+
+  ajax.onload = function(){
+    if(this.status === 200){
+      getDataCallback(this.responseText, showData)
+    }else{
+
     }
-  };
-
-  ajax.onerror = function() {
-    console.log("there was an error");
-  };
-  ajax.send();
+  }
+  ajax.onerror = function(){
+    console.log("get data");
+  }
+  ajax.send()
 }
 
-function getData(response, cb) {
-  const data = JSON.parse(response);
+function getData(responseText, showDataCallBack){
+  const data = JSON.parse(responseText)
 
-  const {
-    name: { first },
-    name: { last },
-    picture: { large },
-    location: { street },
-    phone,
-    email
-  } = data.results[0];
+  const {name:{first}, name:{last}, picture:{large}, location: {street:{number: sNumber}, street:{name: sName}}, phone, email} = data.results[0]
 
-  cb(first, last, large, street, phone, email);
+
+  showDataCallBack(first, last, large, sNumber, sName, phone, email)
 }
-function showData(first, last, large, street, phone, email) {
-  document.getElementById("first").textContent = first;
-  document.getElementById("last").textContent = last;
-  document.getElementById("street").textContent = street;
-  document.getElementById("phone").textContent = phone;
-  document.getElementById("email").textContent = email;
-  document.getElementById("photo").src = large;
+
+function showData(first, last, large, sNumber, sName, phone, email){
+  document.querySelector('#first').textContent = first
+  document.querySelector('#last').textContent = last
+  document.querySelector('#photo').src = large
+  document.querySelector('#street').textContent = `${sNumber}  ${sName}`
+  document.querySelector('#phone').textContent = phone
+  document.querySelector('#email').textContent = email
+  console.log(first, last, large, street, phone, email);
 }

@@ -16,3 +16,17 @@
     font-size: 1rem;
   }
 }
+
+
+.card{
+  display: flex;
+  justify-content: center;
+}
+
+
+.imageHolder{
+  margin-top: 20px;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
