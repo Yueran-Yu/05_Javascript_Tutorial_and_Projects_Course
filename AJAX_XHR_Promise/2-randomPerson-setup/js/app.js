@@ -1,11 +1,13 @@
 const btn = document.querySelector('#btn')
 
 btn.addEventListener('click', function () {
+  getDataOriginal().then(data => getData(data, showData)).catch(error => console.log(error))
 
-  fetch("https://randomuser.me/api/")
-    .then(data => data.json())
-    .then(data => getData(data, showData))
-    .catch(error => console.log(error))
+
+  // fetch("https://randomuser.me/api/")
+  //   .then(data => data.json())
+  //   .then(data => getData(data, showData))
+  //   .catch(error => console.log(error))
 })
 
 // const ajax = new Promise((resolve, reject) => {
@@ -78,3 +80,11 @@ function showData(first, last, large, sNumber, sName, phone, email) {
 // }
 
 // externalData("url").then(data => console.log(data)).catch(error => console.log(error))
+
+
+const getDataOriginal = async function(){
+  const url = "https://randomuser.me/api"
+  const result = await fetch(url)
+  const response = await result.json()
+  return response
+}
