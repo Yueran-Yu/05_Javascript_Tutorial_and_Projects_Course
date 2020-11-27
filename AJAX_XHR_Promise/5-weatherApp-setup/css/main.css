@@ -1,17 +1,17 @@
 :root {
-  --mainBlack: #333333;
+  --mainBlack: #7a7676;
   --mainWhite: #f5f5f5;
-  --mainYellow: #ffd166;
-  --mainGreen: #06d6a0;
-  --mainBlue: #118ab2;
-  --darkBlue: #073b4c;
+  --mainYellow: #fdfcea;
+  --mainGreen: #fce0e9;
+  --mainBlue: #f09089;
+  --darkBlue: #ddd9d9;
 }
 body {
   background: var(--mainYellow);
   color: var(--mainBlack);
 }
 .card {
-  box-shadow: 0 10px 15px rgb(0, 0, 0);
+  box-shadow: 0 10px 15px rgb(116, 93, 93);
   background: var(--mainGreen);
 }
 .cityInput {
